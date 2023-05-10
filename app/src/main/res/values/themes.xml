@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.WhatsAppCloneUsingJetpackCompose" parent="android:Theme.Material.NoActionBar" />
+
+    <style name="Theme.WhatsAppClone.Splash" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor">@color/whatsapp_background</item>
+    </style>
+
+    <style name="Theme.WhatsAppClone.Welcome" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+</resources>
