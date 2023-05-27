@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -50,8 +49,7 @@ class SplashScreenActivity : ComponentActivity() {
                     finish()
                 }
                 Column(
-                    modifier = Modifier
-                        .fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Surface(modifier = Modifier.weight(1f), color = Color.Transparent) {
@@ -67,8 +65,7 @@ class SplashScreenActivity : ComponentActivity() {
                     Text(
                         text = "from",
                         style = TextStyle(
-                            color = secondaryTextColor,
-                            fontSize = 16.sp
+                            color = secondaryTextColor, fontSize = 16.sp
                         ),
                     )
                     Row(
