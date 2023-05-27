@@ -70,9 +70,9 @@ import com.sekhgmainuddin.whatsappclonecompose.ui.theme.whatsAppBackground
 import java.util.Locale
 
 enum class WelcomeScreen {
-    welcomeScreen,
-    phoneNumberVerfication,
-    updateProfileInfo
+    WelcomeScreen,
+    PhoneNumberVerification,
+    UpdateProfileInfo
 }
 
 class WelcomeActivity : ComponentActivity() {
@@ -87,24 +87,26 @@ class WelcomeActivity : ComponentActivity() {
         setContent {
 
             var welcomeState by remember {
-                mutableStateOf(WelcomeScreen.welcomeScreen)
+                mutableStateOf(WelcomeScreen.WelcomeScreen)
             }
 
             when (welcomeState) {
-                WelcomeScreen.welcomeScreen -> {
+                WelcomeScreen.WelcomeScreen -> {
                     WelcomeScreenCompose(
                         onAgreeButtonClicked = {
-                            welcomeState = WelcomeScreen.phoneNumberVerfication
+                            welcomeState = WelcomeScreen.PhoneNumberVerification
                         },
                     )
                 }
-                WelcomeScreen.phoneNumberVerfication -> {
+
+                WelcomeScreen.PhoneNumberVerification -> {
                     PhoneNumberVerifyCompose(countryList, phoneCodes) {
-                        welcomeState = WelcomeScreen.updateProfileInfo
+                        welcomeState = WelcomeScreen.UpdateProfileInfo
                     }
                 }
+
                 else -> {
-                    UpdateProfileInfoCompose{
+                    UpdateProfileInfoCompose {
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     }
@@ -229,7 +231,7 @@ fun PhoneNumberVerifyCompose(
     var selectedCountry by remember { mutableStateOf("United States") }
     var selectedCountryCode by remember { mutableStateOf(1) }
     var isOTPSent by remember { mutableStateOf(false) }
-    var OTP by remember { mutableStateOf("") }
+    var otp by remember { mutableStateOf("") }
 
     val icon = if (countrySelection)
         Icons.Filled.KeyboardArrowUp
@@ -453,9 +455,9 @@ fun PhoneNumberVerifyCompose(
                         )
                     }
                     .padding(bottom = 5.dp),
-                value = OTP,
+                value = otp,
                 onValueChange = {
-                    OTP = it
+                    otp = it
                 },
                 textStyle = TextStyle(
                     color = lightSilver,
